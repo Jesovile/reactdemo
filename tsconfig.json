@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "lib": [
+      "DOM", "ES5", "ScriptHost", "ES2015.Promise", "es2015.core"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
