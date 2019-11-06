@@ -1,0 +1,26 @@
+.list-head{
+
+}
+
+.list-head-content{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.list-head-content-header{
+
+}
+
+.list-head-content-header-leadtext{
+    margin: 0;
+}
+
+.list-head-content-header-description{
+    font-size: 1em;
+    color: grey;
+}
+
+.list-head-content-actionpanel{
+
+}
