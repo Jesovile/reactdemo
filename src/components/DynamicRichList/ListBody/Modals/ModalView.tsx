@@ -11,7 +11,8 @@ interface ModalViewProps {
 
 /*this modal panel is opened up frm parent node
 * bottom is used for set start Y-coordinate for modal bottom
-* height may be responsive*/
+* height may be responsive
+* WARNING! This modal is without close button. Implement it outside of this*/
 export default class ModalView extends React.Component<ModalViewProps>{
 
     /*RENDERS*/

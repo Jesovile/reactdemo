@@ -14,11 +14,11 @@ export default class App extends React.Component<{}>{
                     <DynamicListContainer
                         items={[
                             {id: "1", name: "Name 1", comment: "Comment 1"},
-                            {id: "2", name: "Name 2", comment: "Comment 2"},
+                            {id: "2", name: "Name 2", comment: "Comment 2", description: "Description about comment 2"},
                             {id: "3", name: "Name 3", comment: "Comment 3"},
-                            {id: "4", name: "Name 4", comment: "Comment 4"},
+                            {id: "4", name: "Name 4", comment: "Comment 4", description: "Description about comment 4"},
                             {id: "5", name: "Name 5", comment: "Comment 5"},
-                            {id: "6", name: "Name 6", comment: "Comment 6"}
+                            {id: "6", name: "Name 6", comment: "Comment 6", description: "Description about comment 6"}
                         ]}
                     />
                 </div>

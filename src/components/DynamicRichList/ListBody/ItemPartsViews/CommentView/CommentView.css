@@ -1,0 +1,11 @@
+.comment-view{}
+
+.comment-view__comment{
+    margin: 0px;
+    font-weight: bold;
+}
+
+.comment-view__description{
+    font-size: 0.8em;
+    color: grey;
+}
