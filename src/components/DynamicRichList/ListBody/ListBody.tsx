@@ -16,6 +16,9 @@ interface ListBodyState {
     containerRootNode: HTMLElement;
 }
 
+/*This is example of full-height container
+* It's mean that this component has fixed height from his top render coordinate to the bottom of viewport
+* This type of container may be used for lists, when you need scroll (as this example)*/
 export default class ListBody extends React.Component<ListBodyProps, ListBodyState>{
     constructor(props){
         super(props);
@@ -42,6 +45,8 @@ export default class ListBody extends React.Component<ListBodyProps, ListBodySta
     }
 
     /*UTILS*/
+    // calculate container height from top to the end of viewport
+    // QUESTION: how to observe window resize event correctly for recalculating, when event is emitted
     private readonly calculateHeight = (containerTop: number) => {
         return window.innerHeight - containerTop;
     };
