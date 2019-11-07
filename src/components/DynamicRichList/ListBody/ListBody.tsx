@@ -3,6 +3,7 @@ import {ListItem} from "../index";
 import ListItemView from "./ListItemView/ListItemView";
 import ModalView from "./Modals/ModalView";
 import CommentView from "./ItemPartsViews/CommentView/CommentView";
+import "./ListBody.css";
 
 interface ListBodyProps {
     items: ListItem[];
@@ -12,6 +13,7 @@ interface ListBodyState {
     modalParentCoords: ClientRect;
     currentItem: ListItem;
     isModalOpen: boolean;
+    containerRootNode: HTMLElement;
 }
 
 export default class ListBody extends React.Component<ListBodyProps, ListBodyState>{
@@ -21,9 +23,28 @@ export default class ListBody extends React.Component<ListBodyProps, ListBodySta
         this.state = {
             modalParentCoords: {top: 0, left: 0, right: 0, bottom: 0, height: 0, width: 0},
             isModalOpen: false,
-            currentItem: null
+            currentItem: null,
+            containerRootNode: null
+        };
+        // container root reference
+        this.containerRootRef = React.createRef();
+
+    }
+
+    /*CONSTANTS*/
+    private readonly containerRootRef: React.RefObject<HTMLDivElement>;
+
+    /*LIFECYCLE METHODS*/
+    componentDidMount(){
+        if(this.containerRootRef){
+            this.setState({containerRootNode: this.containerRootRef.current});
         }
     }
+
+    /*UTILS*/
+    private readonly calculateHeight = (containerTop: number) => {
+        return window.innerHeight - containerTop;
+    };
 
     /*HANDLERS*/
     private readonly handleEvent = (event: React.SyntheticEvent<HTMLElement>, itemId: string) => {
@@ -79,7 +100,15 @@ export default class ListBody extends React.Component<ListBodyProps, ListBodySta
     render(){
         return(
             <div
+                ref={this.containerRootRef}
                 onClick={this.closeModal}
+                className={"list-body"}
+                style={{
+                    height: this.state.containerRootNode ?
+                        this.calculateHeight(this.state.containerRootNode.getBoundingClientRect().top)
+                        :
+                        "auto"
+                }}
             >
                 {this.renderItems(this.props.items)}
                 {this.renderModal(this.state.isModalOpen)}

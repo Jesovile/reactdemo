@@ -1,5 +1,6 @@
 import * as React from "react";
 import DynamicListContainer from "../DynamicRichList/DynamicListContainer";
+import "./App.css";
 
 export default class App extends React.Component<{}>{
 
@@ -12,17 +13,24 @@ export default class App extends React.Component<{}>{
                 </div>
                 <div>
                     <DynamicListContainer
-                        items={[
-                            {id: "1", name: "Name 1", comment: "Comment 1"},
-                            {id: "2", name: "Name 2", comment: "Comment 2", description: "Description about comment 2"},
-                            {id: "3", name: "Name 3", comment: "Comment 3"},
-                            {id: "4", name: "Name 4", comment: "Comment 4", description: "Description about comment 4"},
-                            {id: "5", name: "Name 5", comment: "Comment 5"},
-                            {id: "6", name: "Name 6", comment: "Comment 6", description: "Description about comment 6"}
-                        ]}
+                        items={generateItems(20)}
                     />
                 </div>
             </div>
         );
     }
+}
+
+// todo stub for testing
+function generateItems(count) {
+    const result = [];
+    for( let i=0; i<count; i++){
+        result[i] = {
+            id: `${i}`,
+            name: `Name ${i}`,
+            comment: `Comment ${i}`,
+            description: i % 2 === 0 ? `Description about comment ${i}` : ""
+        };
+    }
+    return result;
 }

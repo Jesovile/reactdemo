@@ -1,0 +1,7 @@
+/*todo Is it good?
+If body has margin, we have overflow on body with calculated-height-components
+(like ListBody in DynamicRichModule for example)
+*/
+body{
+    margin: 0px;
+}
